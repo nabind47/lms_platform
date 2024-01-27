@@ -1,3 +1,22 @@
+# [Learning Management System]()
+
+**_Learning Management System_** is a dynamic web application designed for seamless online education. 🌐 Users can _effortlessly explore and filter courses_ of interest, ensuring a user-friendly experience. **Secure course transactions** are enabled through the integration of **Stripe**, adding a layer of trust for users. 🛒 Additionally, the system features innovative **chapter progress tracking**, offering dynamic calculations for insightful learning journeys. 📈 **Personalized student dashboards** and a dedicated **teacher mode** enhance the overall educational experience, fostering a collaborative and engaging environment. 🎓 Instructors can _effortlessly create and publish courses_ using a rich text editor, while the system's intuitive design allows for **easy chapter reordering**.
+
+**Multimedia management** is simplified with **UploadThing**, and **video processing and delivery** are optimized through **Mux**, ensuring a high-quality visual experience. 🎥 **Secure access** is guaranteed with **Clerk authentication**, and efficient **database interaction** is achieved through **Prisma**, utilizing a robust **MySQL database** powered by **Planetscale**. 🚀 **Explore and contribute** to elevate the world of online learning!
+
+![](screenshots/1.png)
+![](screenshots/2.png)
+![](screenshots/3.png)
+![](screenshots/4.png)
+![](screenshots/5.png)
+![](screenshots/6.png)
+![](screenshots/7.png)
+![](screenshots/8.png)
+![](screenshots/9.png)
+![](screenshots/10.png)
+![](screenshots/11.png)
+![](screenshots/12.png)
+
 ```sh
 npx shadcn-ui@latest add input
 npx prima migrate reset
@@ -81,7 +100,11 @@ const form = useForm<Values>({
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input disabled={isSubmitting} placeholder="e.g. 'Advanced web development'" {...field} />
+                <Input
+                  disabled={isSubmitting}
+                  placeholder="e.g. 'Advanced web development'"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -104,7 +127,10 @@ import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 
-export async function PATCH(req: Request, { params }: { params: { courseId: string } }) {
+export async function PATCH(
+  req: Request,
+  { params }: { params: { courseId: string } }
+) {
   try {
     const { userId } = auth();
     const { courseId } = params;
